@@ -57,6 +57,12 @@ A reference-quality ESP32 C++ project demonstrating a WebSocket Echo server.
    - **LED Configuration**:
      - `LED GPIO Number`: Set the pin number (e.g., 2 or 5 for most ESP32 boards).
 
+   Navigate to **Component config** → **HTTP Server**:
+
+   - **WebSocket support**: Enable this option (required for WebSocket functionality).
+     - Path: `Component config` → `HTTP Server` → `[*] WebSocket support`
+     - You can also search for `HTTPD_WS_SUPPORT` in menuconfig (press `/` to search).
+
 4. **Build and Flash**:
    Build the project, flash it to the board, and open the serial monitor:
 
@@ -65,6 +71,33 @@ A reference-quality ESP32 C++ project demonstrating a WebSocket Echo server.
    ```
 
    **Note**: This can also be done using the ESP-IDF IDE extension commands in VS Code/other IDEs.
+
+## Troubleshooting
+
+### Flashing Issues
+
+If flashing hangs or fails:
+
+1. **Put ESP32 into download mode manually**:
+   - Hold the **BOOT** button (or GPIO0)
+   - Press and release the **RESET** button while holding BOOT
+   - Release the **BOOT** button
+   - Then retry flashing
+
+2. **Try different flash methods**:
+   - In `idf.py menuconfig`, navigate to **Serial flasher config**
+   - Try both **ESP-PROG** and **ESP-PROG2-2** options if available
+   - Some boards work better with one method over the other
+
+3. **Lower baud rate**:
+   ```bash
+   idf.py flash --baud 115200
+   ```
+
+4. **Check serial port**:
+   - Verify the correct port is selected
+   - Ensure no other program is using the serial port
+   - Try unplugging and replugging the USB cable
 
 ## Finding Your Network IP Configuration
 
