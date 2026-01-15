@@ -27,6 +27,7 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     internetModule: false
+    ipAddress: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -37,8 +38,10 @@
     []
   DefaultScriptInputs:
     - internetModule: !<reference.InternetModule> 00000000-0000-0000-0000-000000000000
+      ipAddress: "ws://10.28.65.123/ws"
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Asset.InternetModule internetModule
+    - '// @input string ipAddress = "ws://10.28.65.123/ws"'

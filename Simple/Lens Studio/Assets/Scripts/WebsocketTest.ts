@@ -3,6 +3,8 @@ export class WebSocketExample extends BaseScriptComponent {
   @input
   internetModule: InternetModule
 
+  @input public ipAddress: string = "ws://192.168.1.100/ws"
+
   private socket!: WebSocket
 
   // Method called when the script is awake
@@ -11,8 +13,8 @@ export class WebSocketExample extends BaseScriptComponent {
   }
 
   connect() {
-    print("Attempting to connect to ws://10.28.65.123/ws...")
-    this.socket = this.internetModule.createWebSocket("ws://10.28.65.123/ws")
+    print("Attempting to connect to " + this.ipAddress + "...")
+    this.socket = this.internetModule.createWebSocket(this.ipAddress)
     this.socket.binaryType = "blob"
 
     // Listen for the open event
