@@ -39,21 +39,17 @@
 // ============================================================================
 
 // WiFi Credentials
-const char* WIFI_SSID = "Snap Guest";
-const char* WIFI_PASSWORD = "bluehouse";
+const char* WIFI_SSID = "ssid";
+const char* WIFI_PASSWORD = "password";
 
 // Optional: Static IP Configuration (set to 0.0.0.0 to use DHCP)
 // Uncomment and configure if you need a static IP:
-/*
+
 IPAddress staticIP(192, 168, 1, 100);
 IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress dns(8, 8, 8, 8);
-*/
-IPAddress staticIP(10, 28, 65, 123);
-IPAddress gateway(10, 28, 64, 1);
-IPAddress subnet(255, 255, 240, 0);
-IPAddress dns(8, 8, 8, 8);
+
 
 // LED Configuration
 const int LED_PIN = 2;  // GPIO pin for LED (GPIO 2 is common on ESP32 boards)
