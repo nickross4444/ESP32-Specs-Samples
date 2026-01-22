@@ -45,13 +45,15 @@
 // CONFIGURATION - Update these values for your setup
 // ============================================================================
 
-// WiFi Credentials
+// WiFi Credentials (set password to "" for open networks)
 const char* WIFI_SSID = "ssid";
-const char* WIFI_PASSWORD = "password";
+const char* WIFI_PASSWORD = "password";  // Empty for open network
 
 // Optional: Static IP Configuration
-IPAddress staticIP(192, 168, 1, 100);
-IPAddress gateway(192, 168, 1, 1);
+//10.236.19.100
+//gateway: 10.236.19.15
+IPAddress staticIP(10, 236, 19, 100);
+IPAddress gateway(10, 236, 19, 15);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress dns(8, 8, 8, 8);
 
@@ -118,19 +120,22 @@ void connectToWiFi() {
 
     WiFi.mode(WIFI_STA);
 
-    // Configure static IP
-    if (!WiFi.config(staticIP, gateway, subnet, dns)) {
-        Serial.println("Failed to configure static IP!");
+     if (!WiFi.config(staticIP, gateway, subnet, dns)) {
+         Serial.println("Failed to configure static IP!");
+     }
+    // Connect - handles both open and password-protected networks
+    if (strlen(WIFI_PASSWORD) == 0) {
+        WiFi.begin(WIFI_SSID);
+    } else {
+        WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
     }
-
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
     int retryCount = 0;
     const int MAX_RETRIES = 20;
 
     while (WiFi.status() != WL_CONNECTED && retryCount < MAX_RETRIES) {
         delay(500);
-        Serial.print(".");
+        Serial.printf(".[%d]", WiFi.status());  // Debug: show status code
         retryCount++;
     }
 

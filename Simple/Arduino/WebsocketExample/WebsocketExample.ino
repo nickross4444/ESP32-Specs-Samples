@@ -38,15 +38,15 @@
 // CONFIGURATION - Update these values for your setup
 // ============================================================================
 
-// WiFi Credentials
-const char* WIFI_SSID = "ssid";
-const char* WIFI_PASSWORD = "password";
+// WiFi Credentials (set password to "" for open networks)
+const char* WIFI_SSID = "Starbucks5G";
+const char* WIFI_PASSWORD = "bluehouse";
 
 // Optional: Static IP Configuration (set to 0.0.0.0 to use DHCP)
 // Uncomment and configure if you need a static IP:
 
-IPAddress staticIP(192, 168, 1, 100);
-IPAddress gateway(192, 168, 1, 1);
+IPAddress staticIP(10, 236, 19, 100);
+IPAddress gateway(10, 236, 19, 15);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress dns(8, 8, 8, 8);
 
@@ -132,14 +132,19 @@ void connectToWiFi() {
         Serial.println("Failed to configure static IP!");
     }
 
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    // Connect - handles both open and password-protected networks
+    if (strlen(WIFI_PASSWORD) == 0) {
+        WiFi.begin(WIFI_SSID);
+    } else {
+        WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    }
 
     int retryCount = 0;
-    const int MAX_RETRIES = 20;  // Wait up to 20 * 500ms = 10 seconds
+    const int MAX_RETRIES = 20;
 
     while (WiFi.status() != WL_CONNECTED && retryCount < MAX_RETRIES) {
         delay(500);
-        Serial.print(".");
+        Serial.printf(".[%d]", WiFi.status());  // Debug: show status code
         retryCount++;
     }
 

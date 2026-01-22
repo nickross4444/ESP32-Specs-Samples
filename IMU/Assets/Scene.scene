@@ -8,7 +8,11 @@
     - !<own> 49b873d3-10ef-4eb5-b887-656a8f8b6777
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
-      []
+      - |
+        id: 1
+        name: Layer 1
+        color: 0
+
     HasOrtho: true
   RenderOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
   RenderPreviewOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
@@ -176,7 +180,7 @@
 - !<SceneObject/3e836343-81dd-40e3-8838-6dd64a7ca731>
   PrefabRemaps:
     []
-  Name: BLETest
+  Name: Websocket
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -353,7 +357,7 @@
   Enabled: true
   ScriptAsset: !<reference> 06fed9f2-cf34-468c-b2f5-a8a8446992d1
   ScriptInputsDefault:
-    ipAddress: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -361,7 +365,7 @@
       internetModule: !<reference.InternetModule> a1b2c3d4-5678-90ab-cdef-1234567890ab
       screenText: !<reference.Text> 6135ece7-9dc3-4b88-867e-e0c3431cb769
       cube: !<MappingBased.AssignableType> 8f184fa3-df87-4059-92f6-84155d46e874
-      ipAddress: "ws://192.168.1.100/ws"
+      ipAddress: "ws://10.236.19.100/ws"
   ScriptTypes:
     "":
       {}
