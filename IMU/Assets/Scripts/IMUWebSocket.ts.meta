@@ -1,20 +1,20 @@
-- !<AssetImportMetadata/0a2b1574-06bb-48f4-b293-baa12dd10214>
+- !<AssetImportMetadata/65cf67d2-25c0-4b49-ac32-bdc6d3073fbe>
   ImportedAssetIds:
-    TypeScriptAsset: !<reference> 9e63d40e-bb6e-41b5-b605-0124bd13a888
+    TypeScriptAsset: !<reference> 06fed9f2-cf34-468c-b2f5-a8a8446992d1
   ImporterName: TypeScriptAssetImporter
-  PrimaryAsset: !<reference> 9e63d40e-bb6e-41b5-b605-0124bd13a888
+  PrimaryAsset: !<reference> 06fed9f2-cf34-468c-b2f5-a8a8446992d1
   PackageType: NotAPackage
   LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
-    TypeScriptAsset: !<own> f70b67db-c278-46b2-bac5-b1ff6e4ec8f7
+    TypeScriptAsset: !<own> dc5eddc0-a8be-42bd-866d-28345ead8560
   DependentFiles:
     []
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<TypeScriptAssetData/f70b67db-c278-46b2-bac5-b1ff6e4ec8f7>
+- !<TypeScriptAssetData/dc5eddc0-a8be-42bd-866d-28345ead8560>
   SvgIcon: ""
   SetupScript:
     code: ""
@@ -22,12 +22,14 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 623c212a-3c2e-4e0b-9430-145cbd697db7
+  ComponentUid: 781da687-a7e6-4012-a1ef-b7af1b98c432
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    cube: false
     internetModule: false
     ipAddress: false
+    screenText: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -38,10 +40,14 @@
     []
   DefaultScriptInputs:
     - internetModule: !<reference.InternetModule> 00000000-0000-0000-0000-000000000000
-      ipAddress: "ws://10.28.65.123/ws"
+      screenText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      cube: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      ipAddress: "ws://192.168.1.100/ws"
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Asset.InternetModule internetModule
+    - // @input Component.Text screenText
+    - // @input AssignableType cube
     - '// @input string ipAddress = "ws://192.168.1.100/ws"'

@@ -929,12 +929,13 @@
   Enabled: true
   ScriptAsset: !<reference> 9e63d40e-bb6e-41b5-b605-0124bd13a888
   ScriptInputsDefault:
-    {}
+    ipAddress: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       internetModule: !<reference.InternetModule> 69ed0b33-1599-4238-8a36-79397c111e1b
+      ipAddress: "ws://10.28.65.123/ws"
   ScriptTypes:
     "":
       {}
